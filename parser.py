@@ -21,7 +21,7 @@ class BaseParser:
         if data:
             data = urllib.parse.urlencode(data).encode('utf-8')
 
-        request = urllib.request.Request(urllib.parse.quote(url, ':/?='),
+        request = urllib.request.Request(urllib.parse.quote(url, ':/?=&'),
                                          data if data else None, headers)
         with urllib.request.urlopen(request) as response:
             content = response.read()
@@ -32,7 +32,9 @@ class BaseParser:
                     content = content.decode(encoding)
             if 'application/json' in response.getheader('Content-Type') or \
                     'text/json' in response.getheader('Content-Type'):
-                content = json.loads(content.decode('utf-8'))
+                content = json.loads(
+                    content.decode('utf-8') if not encoding else content
+                )
         return content
 
     def get_redirect_url(self, url):
