@@ -16,5 +16,11 @@
 # You should have received a copy of the GNU General Public License
 # along with utils.  If not, see <http://www.gnu.org/licenses/>.
 
-from .version import *
-from .base import *
+from datetime import timedelta
+
+
+def daterange(start_date, end_date):
+    if not start_date or not end_date:
+        return
+    for n in range(int((end_date - start_date).days) + 1):
+        yield start_date + timedelta(n)

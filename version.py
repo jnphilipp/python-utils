@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-
-# Copyright (C) 2017 Nathanael Philipp (jnphilipp) <mail@jnphilipp.org>
+# Copyright (C) 2017-2018 Nathanael Philipp (jnphilipp) <mail@jnphilipp.org>
 #
 # This file is part of utils.
 #
@@ -16,7 +15,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with utils.  If not, see <http://www.gnu.org/licenses/>.
-
 
 from math import ceil, floor
 
