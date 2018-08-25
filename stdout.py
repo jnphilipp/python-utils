@@ -17,8 +17,10 @@
 # along with utils.  If not, see <http://www.gnu.org/licenses/>.
 
 
-def p(fields, line_length=100, after='_', positions=[.33, .55, .67, 1.]):
-    if positions[-1] <= 1:
+def p(fields, line_length=100, after='_', positions=[]):
+    assert len(positions) == 0 or [p > 1. for p in positions]
+    if len(positions) == 0 or positions[-1] <= 1.:
+        positions += [1.]
         positions = [int(line_length * p) for p in positions]
 
     def print_row(fields, positions):
