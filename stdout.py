@@ -17,7 +17,7 @@
 # along with utils.  If not, see <http://www.gnu.org/licenses/>.
 
 
-def p(fields, line_length=100, after='_', positions=[]):
+def p(fields, after='_', positions=[], line_length=100):
     assert len(positions) == 0 or [p > 1. for p in positions]
     if len(positions) == 0 or positions[-1] <= 1.:
         positions += [1.]
@@ -27,7 +27,7 @@ def p(fields, line_length=100, after='_', positions=[]):
         line = ''
         rfields = []
         for i in range(len(fields)):
-            line += str(fields[i])
+            line += str(fields[i]) if fields[i] else ''
 
             if len(line) > positions[i]:
                 rf = line.rfind(' ', positions[i - 1] if i > 0 else 0,
